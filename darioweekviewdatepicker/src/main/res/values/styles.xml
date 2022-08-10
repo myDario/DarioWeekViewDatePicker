@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TitleSelectedDate">
+        <item name="android:fontFamily">@font/gilroy_regular</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">#202130</item>
+    </style>
+    <style name="WeekDayTopText">
+        <item name="android:fontFamily">@font/gilroy_semibold</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">#4D4F57</item>
+    </style>
+    <style name="WeekDayTopTextSelected">
+        <item name="android:fontFamily">@font/gilroy_semibold</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">#0C6478</item>
+    </style>
+    <style name="WeekDayTopNumber">
+        <item name="android:fontFamily">@font/gilroy_regular</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#4D4F57</item>
+    </style>
+    <style name="WeekDayTopNumberSelected">
+        <item name="android:fontFamily">@font/gilroy_semibold</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#0C6478</item>
+    </style>
+</resources>

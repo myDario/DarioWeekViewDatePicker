@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="day_block_width">48dp</dimen>
+    <dimen name="day_block_height">76dp</dimen>
+    <dimen name="weekday_text_margin_top">17dp</dimen>
+    <dimen name="weekday_number_margin_top">2dp</dimen>
+</resources>
