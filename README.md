@@ -16,7 +16,7 @@ allprojects {
 
 app `build.gradle` file:
 ```gradle
-implementation 'com.github.myDario:DarioWeekViewDatePicker:1.0.1'
+implementation 'com.github.myDario:DarioWeekViewDatePicker:1.0.2'
 ```
 
 ## Usage
@@ -38,3 +38,9 @@ findViewById<DarioWeekViewDatePicker>(R.id.datePicker).onSelectionChanged = { da
 ```kotlin
 findViewById<DarioWeekViewDatePicker>(R.id.datePicker).setSelection(date)
 ```
+
+## V 1.0.2 Release notes
+* Removing scrollview and centering days
+* Adding today button
+* Adding Today string to date (in case today selected)
+* Rename left/right arrows to resolve conflict in code

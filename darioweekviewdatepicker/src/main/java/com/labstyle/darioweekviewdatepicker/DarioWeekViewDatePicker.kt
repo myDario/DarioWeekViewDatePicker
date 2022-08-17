@@ -1,10 +1,10 @@
 package com.labstyle.darioweekviewdatepicker
 
 import android.content.Context
+import android.text.SpannableString
+import android.text.style.UnderlineSpan
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageButton
@@ -54,6 +54,7 @@ class DarioWeekViewDatePicker @JvmOverloads constructor(
     private val selectedDayText: TextView
     private val leftArrow: AppCompatImageButton
     private val rightArrow: AppCompatImageButton
+    private val todayText: TextView
 
     private val shortWeekdays = DateFormatSymbols(Locale.getDefault()).shortWeekdays
     var selectedDate = Date(System.currentTimeMillis())
@@ -67,6 +68,7 @@ class DarioWeekViewDatePicker @JvmOverloads constructor(
         leftArrow = findViewById(R.id.arrowLeft)
         rightArrow = findViewById(R.id.arrowRight)
         selectedDayText = findViewById(R.id.selectedDayText)
+        todayText = findViewById(R.id.textViewToday)
         weekdayTextViews.addAll(listOf(
             findViewById(R.id.weekdayText1),
             findViewById(R.id.weekdayText2),
@@ -116,19 +118,33 @@ class DarioWeekViewDatePicker @JvmOverloads constructor(
             }
         }
 
-        // handle arrows clicks
+        val mSpannableString = SpannableString(context.getString(R.string.today))
+        mSpannableString.setSpan(UnderlineSpan(), 0, mSpannableString.length, 0)
+        todayText.text = mSpannableString
+
+
+        // handle clicks
         rightArrow.setOnClickListener { addDays(7) }
         leftArrow.setOnClickListener { addDays(-7) }
+        todayText.setOnClickListener { setToday() }
 
         setSelection(selectedDate)
     }
 
-    fun setSelection(date: Date) {
+    private fun setSelection(date: Date) {
         selectedDate = date
 
         // update long text for selected day
         val dateFormat = DateFormat.getDateInstance(DateFormat.LONG, Locale.getDefault())
-        selectedDayText.text = dateFormat.format(selectedDate)
+
+        if (isToday(date)) {
+            todayText.visibility = View.GONE
+            selectedDayText.text = context.getString(R.string.today_date, dateFormat.format(selectedDate))
+        }
+        else {
+            todayText.visibility = View.VISIBLE
+            selectedDayText.text = dateFormat.format(selectedDate)
+        }
 
         // index of selected day of week
         val cal = Calendar.getInstance()
@@ -198,4 +214,6 @@ class DarioWeekViewDatePicker @JvmOverloads constructor(
         cal.add(Calendar.DATE, days)
         setSelection(cal.time)
     }
+
+    private fun setToday() = setSelection(Calendar.getInstance().time)
 }
