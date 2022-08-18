@@ -44,3 +44,7 @@ findViewById<DarioWeekViewDatePicker>(R.id.datePicker).setSelection(date)
 * Adding today button
 * Adding Today string to date (in case today selected)
 * Rename left/right arrows to resolve conflict in code
+
+## V 1.0.3 Release notes
+* Revert back scrollview (days kept centered)
+* Enlarging today button

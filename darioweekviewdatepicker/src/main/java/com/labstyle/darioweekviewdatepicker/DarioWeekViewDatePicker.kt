@@ -131,7 +131,7 @@ class DarioWeekViewDatePicker @JvmOverloads constructor(
         setSelection(selectedDate)
     }
 
-    private fun setSelection(date: Date) {
+    fun setSelection(date: Date) {
         selectedDate = date
 
         // update long text for selected day
