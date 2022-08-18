@@ -45,331 +45,308 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="arrowLeft,arrowRight,selectedDayText"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/daysContainer"
-        android:layout_width="0dp"
+    <HorizontalScrollView
+        android:id="@+id/scrollDays"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:scrollbars="none"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arrowLeft">
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrierTop">
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/block1"
-            android:layout_width="@dimen/day_block_width"
-            android:layout_height="@dimen/day_block_height"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/block2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/weekdayText1"
-                style="@style/WeekDayTopText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_text_margin_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/daysContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block1"
+                android:layout_width="@dimen/day_block_width"
+                android:layout_height="@dimen/day_block_height"
+                android:background="@android:color/transparent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Sun" />
-
-            <TextView
-                android:id="@+id/weekdayNumber1"
-                style="@style/WeekDayTopNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_number_margin_top"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekdayText1"
-                tools:text="5" />
-
-            <ImageView
-                android:id="@+id/todayDot1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_number_margin_top"
-                android:src="@drawable/ic_select_weekday_dot"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekdayNumber1"
-                tools:visibility="gone" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/block2"
-            android:layout_width="@dimen/day_block_width"
-            android:layout_height="@dimen/day_block_height"
-            android:background="@drawable/selected_day_bg"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/block3"
-            app:layout_constraintStart_toEndOf="@+id/block1"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/weekdayText2"
-                style="@style/WeekDayTopTextSelected"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_text_margin_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/block2">
+                <TextView
+                    android:id="@+id/weekdayText1"
+                    style="@style/WeekDayTopText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Sun"
+                    android:layout_marginTop="@dimen/weekday_text_margin_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/weekdayNumber1"
+                    style="@style/WeekDayTopNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="5"
+                    android:layout_marginTop="@dimen/weekday_number_margin_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekdayText1"/>
+                <ImageView
+                    android:id="@+id/todayDot1"
+                    tools:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/weekday_number_margin_top"
+                    android:src="@drawable/ic_select_weekday_dot"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekdayNumber1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block2"
+                android:layout_width="@dimen/day_block_width"
+                android:layout_height="@dimen/day_block_height"
+                android:background="@drawable/selected_day_bg"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Mon" />
-
-            <TextView
-                android:id="@+id/weekdayNumber2"
-                style="@style/WeekDayTopNumberSelected"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_number_margin_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekdayText2"
-                tools:text="6" />
-
-            <ImageView
-                android:id="@+id/todayDot2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_number_margin_top"
-                android:src="@drawable/ic_select_weekday_dot"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekdayNumber2"
-                tools:visibility="visible" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/block3"
-            android:layout_width="@dimen/day_block_width"
-            android:layout_height="@dimen/day_block_height"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/block4"
-            app:layout_constraintStart_toEndOf="@+id/block2"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/weekdayText3"
-                style="@style/WeekDayTopText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_text_margin_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/block1"
+                app:layout_constraintEnd_toStartOf="@+id/block3">
+                <TextView
+                    android:id="@+id/weekdayText2"
+                    style="@style/WeekDayTopTextSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Mon"
+                    android:layout_marginTop="@dimen/weekday_text_margin_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/weekdayNumber2"
+                    style="@style/WeekDayTopNumberSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="6"
+                    android:layout_marginTop="@dimen/weekday_number_margin_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekdayText2"/>
+                <ImageView
+                    android:id="@+id/todayDot2"
+                    tools:visibility="visible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/weekday_number_margin_top"
+                    android:src="@drawable/ic_select_weekday_dot"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekdayNumber2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block3"
+                android:layout_width="@dimen/day_block_width"
+                android:layout_height="@dimen/day_block_height"
+                android:background="@android:color/transparent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Tue" />
-
-            <TextView
-                android:id="@+id/weekdayNumber3"
-                style="@style/WeekDayTopNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_number_margin_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekdayText3"
-                tools:text="7" />
-
-            <ImageView
-                android:id="@+id/todayDot3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_number_margin_top"
-                android:src="@drawable/ic_select_weekday_dot"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekdayNumber3"
-                tools:visibility="gone" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/block4"
-            android:layout_width="@dimen/day_block_width"
-            android:layout_height="@dimen/day_block_height"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/block5"
-            app:layout_constraintStart_toEndOf="@+id/block3"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/weekdayText4"
-                style="@style/WeekDayTopText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_text_margin_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/block2"
+                app:layout_constraintEnd_toStartOf="@+id/block4">
+                <TextView
+                    android:id="@+id/weekdayText3"
+                    style="@style/WeekDayTopText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Tue"
+                    android:layout_marginTop="@dimen/weekday_text_margin_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/weekdayNumber3"
+                    style="@style/WeekDayTopNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="7"
+                    android:layout_marginTop="@dimen/weekday_number_margin_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekdayText3"/>
+                <ImageView
+                    android:id="@+id/todayDot3"
+                    tools:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/weekday_number_margin_top"
+                    android:src="@drawable/ic_select_weekday_dot"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekdayNumber3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block4"
+                android:layout_width="@dimen/day_block_width"
+                android:layout_height="@dimen/day_block_height"
+                android:background="@android:color/transparent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Wed" />
-
-            <TextView
-                android:id="@+id/weekdayNumber4"
-                style="@style/WeekDayTopNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_number_margin_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekdayText4"
-                tools:text="8" />
-
-            <ImageView
-                android:id="@+id/todayDot4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_number_margin_top"
-                android:src="@drawable/ic_select_weekday_dot"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekdayNumber4"
-                tools:visibility="gone" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/block5"
-            android:layout_width="@dimen/day_block_width"
-            android:layout_height="@dimen/day_block_height"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/block6"
-            app:layout_constraintStart_toEndOf="@+id/block4"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/weekdayText5"
-                style="@style/WeekDayTopText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_text_margin_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/block3"
+                app:layout_constraintEnd_toStartOf="@+id/block5">
+                <TextView
+                    android:id="@+id/weekdayText4"
+                    style="@style/WeekDayTopText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Wed"
+                    android:layout_marginTop="@dimen/weekday_text_margin_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/weekdayNumber4"
+                    style="@style/WeekDayTopNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="8"
+                    android:layout_marginTop="@dimen/weekday_number_margin_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekdayText4"/>
+                <ImageView
+                    android:id="@+id/todayDot4"
+                    tools:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/weekday_number_margin_top"
+                    android:src="@drawable/ic_select_weekday_dot"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekdayNumber4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block5"
+                android:layout_width="@dimen/day_block_width"
+                android:layout_height="@dimen/day_block_height"
+                android:background="@android:color/transparent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Thu" />
-
-            <TextView
-                android:id="@+id/weekdayNumber5"
-                style="@style/WeekDayTopNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_number_margin_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekdayText5"
-                tools:text="9" />
-
-            <ImageView
-                android:id="@+id/todayDot5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_number_margin_top"
-                android:src="@drawable/ic_select_weekday_dot"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekdayNumber5"
-                tools:visibility="gone" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/block6"
-            android:layout_width="@dimen/day_block_width"
-            android:layout_height="@dimen/day_block_height"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/block7"
-            app:layout_constraintStart_toEndOf="@+id/block5"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/weekdayText6"
-                style="@style/WeekDayTopText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_text_margin_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/block4"
+                app:layout_constraintEnd_toStartOf="@+id/block6">
+                <TextView
+                    android:id="@+id/weekdayText5"
+                    style="@style/WeekDayTopText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Thu"
+                    android:layout_marginTop="@dimen/weekday_text_margin_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/weekdayNumber5"
+                    style="@style/WeekDayTopNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="9"
+                    android:layout_marginTop="@dimen/weekday_number_margin_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekdayText5"/>
+                <ImageView
+                    android:id="@+id/todayDot5"
+                    tools:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/weekday_number_margin_top"
+                    android:src="@drawable/ic_select_weekday_dot"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekdayNumber5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block6"
+                android:layout_width="@dimen/day_block_width"
+                android:layout_height="@dimen/day_block_height"
+                android:background="@android:color/transparent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Fri" />
-
-            <TextView
-                android:id="@+id/weekdayNumber6"
-                style="@style/WeekDayTopNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_number_margin_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekdayText6"
-                tools:text="10" />
-
-            <ImageView
-                android:id="@+id/todayDot6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_number_margin_top"
-                android:src="@drawable/ic_select_weekday_dot"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekdayNumber6"
-                tools:visibility="gone" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/block7"
-            android:layout_width="@dimen/day_block_width"
-            android:layout_height="@dimen/day_block_height"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/block6"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/weekdayText7"
-                style="@style/WeekDayTopText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_text_margin_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/block5"
+                app:layout_constraintEnd_toStartOf="@+id/block7">
+                <TextView
+                    android:id="@+id/weekdayText6"
+                    style="@style/WeekDayTopText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Fri"
+                    android:layout_marginTop="@dimen/weekday_text_margin_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/weekdayNumber6"
+                    style="@style/WeekDayTopNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="10"
+                    android:layout_marginTop="@dimen/weekday_number_margin_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekdayText6"/>
+                <ImageView
+                    android:id="@+id/todayDot6"
+                    tools:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/weekday_number_margin_top"
+                    android:src="@drawable/ic_select_weekday_dot"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekdayNumber6" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block7"
+                android:layout_width="@dimen/day_block_width"
+                android:layout_height="@dimen/day_block_height"
+                android:background="@android:color/transparent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Sat" />
-
-            <TextView
-                android:id="@+id/weekdayNumber7"
-                style="@style/WeekDayTopNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_number_margin_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekdayText7"
-                tools:text="11" />
-
-            <ImageView
-                android:id="@+id/todayDot7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/weekday_number_margin_top"
-                android:src="@drawable/ic_select_weekday_dot"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekdayNumber7"
-                tools:visibility="gone" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/block6"
+                app:layout_constraintEnd_toEndOf="parent">
+                <TextView
+                    android:id="@+id/weekdayText7"
+                    style="@style/WeekDayTopText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Sat"
+                    android:layout_marginTop="@dimen/weekday_text_margin_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/weekdayNumber7"
+                    style="@style/WeekDayTopNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="11"
+                    android:layout_marginTop="@dimen/weekday_number_margin_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekdayText7"/>
+                <ImageView
+                    android:id="@+id/todayDot7"
+                    tools:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/weekday_number_margin_top"
+                    android:src="@drawable/ic_select_weekday_dot"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekdayNumber7" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
 
     <TextView
         android:id="@+id/textViewToday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="23dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/gilroy_medium"
+        android:padding="7dp"
         android:textColor="#0C6478"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/arrowLeft"
