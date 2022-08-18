@@ -16,7 +16,7 @@ allprojects {
 
 app `build.gradle` file:
 ```gradle
-implementation 'com.github.myDario:DarioWeekViewDatePicker:1.0.2'
+implementation 'com.github.myDario:DarioWeekViewDatePicker:1.0.3'
 ```
 
 ## Usage
