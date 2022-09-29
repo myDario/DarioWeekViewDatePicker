@@ -52,3 +52,6 @@ findViewById<DarioWeekViewDatePicker>(R.id.datePicker).setSelection(date)
 ## V 1.0.4 Release notes
 * add setter for today text resource.
 * set date format to be DateFormat.MEDIUM  instead of DateFormat.LONG
+
+## V 1.0.5 Release notes
+* add ',' char after "today" to date text

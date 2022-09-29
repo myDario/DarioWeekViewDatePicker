@@ -144,7 +144,7 @@ class DarioWeekViewDatePicker @JvmOverloads constructor(
 
         if (isToday(date)) {
             todayText.visibility = View.GONE
-            selectedDayText.text = "$todayDateString ${dateFormat.format(selectedDate)}"
+            selectedDayText.text = "$todayDateString, ${dateFormat.format(selectedDate)}"
         }
         else {
             todayText.visibility = View.VISIBLE
