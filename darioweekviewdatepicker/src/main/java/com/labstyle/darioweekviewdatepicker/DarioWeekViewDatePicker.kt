@@ -60,6 +60,7 @@ class DarioWeekViewDatePicker @JvmOverloads constructor(
     var selectedDate = Date(System.currentTimeMillis())
         private set
     var onSelectionChanged: (Date) -> Unit = {}
+    var todayDateString = context.getString(R.string.today)
 
     init {
         inflate(context, R.layout.weekview_datepicker, this)
@@ -118,9 +119,7 @@ class DarioWeekViewDatePicker @JvmOverloads constructor(
             }
         }
 
-        val mSpannableString = SpannableString(context.getString(R.string.today))
-        mSpannableString.setSpan(UnderlineSpan(), 0, mSpannableString.length, 0)
-        todayText.text = mSpannableString
+        setTodayButtonText()
 
 
         // handle clicks
@@ -131,15 +130,21 @@ class DarioWeekViewDatePicker @JvmOverloads constructor(
         setSelection(selectedDate)
     }
 
+    fun setTodayResource(text:String){
+        todayDateString = text
+        setSelection(selectedDate)
+        setTodayButtonText()
+    }
+
     fun setSelection(date: Date) {
         selectedDate = date
 
         // update long text for selected day
-        val dateFormat = DateFormat.getDateInstance(DateFormat.LONG, Locale.getDefault())
+        val dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault())
 
         if (isToday(date)) {
             todayText.visibility = View.GONE
-            selectedDayText.text = context.getString(R.string.today_date, dateFormat.format(selectedDate))
+            selectedDayText.text = "$todayDateString ${dateFormat.format(selectedDate)}"
         }
         else {
             todayText.visibility = View.VISIBLE
@@ -184,6 +189,12 @@ class DarioWeekViewDatePicker @JvmOverloads constructor(
         }
 
         onSelectionChanged(selectedDate)
+    }
+
+    private fun setTodayButtonText() {
+        val mSpannableString = SpannableString(todayDateString)
+        mSpannableString.setSpan(UnderlineSpan(), 0, mSpannableString.length, 0)
+        todayText.text = mSpannableString
     }
 
     private fun updateWeekdayNumbers() {

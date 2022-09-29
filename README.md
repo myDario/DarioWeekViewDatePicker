@@ -48,3 +48,7 @@ findViewById<DarioWeekViewDatePicker>(R.id.datePicker).setSelection(date)
 ## V 1.0.3 Release notes
 * Revert back scrollview (days kept centered)
 * Enlarging today button
+
+## V 1.0.4 Release notes
+* add setter for today text resource.
+* set date format to be DateFormat.MEDIUM  instead of DateFormat.LONG
