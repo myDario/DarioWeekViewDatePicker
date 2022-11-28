@@ -14,6 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Today, May 6, 2022"
+        android:textFontWeight="600"
+        android:layout_marginStart="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
     <androidx.appcompat.widget.AppCompatImageButton

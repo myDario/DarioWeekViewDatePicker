@@ -55,3 +55,7 @@ findViewById<DarioWeekViewDatePicker>(R.id.datePicker).setSelection(date)
 
 ## V 1.0.5 Release notes
 * add ',' char after "today" to date text
+
+## V 1.0.6 Release notes
+* change font weight to date title text
+* change date title text margin
